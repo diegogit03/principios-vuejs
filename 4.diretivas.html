@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue js</title>
+</head>
+<body>
+    
+    <div id="app">
+        <p>
+            Repo || {{nomeRepo}}
+        </p>
+
+        <!--
+
+            oque acabamos de utilizar para fazer o 
+            data-bind se chama diretiva em vueJS
+            temos muitas, irei citar algumas:
+
+            v-bind, v-on, v-once e muitas outras.
+
+            https://br.vuejs.org/v2/guide/custom-directive.html
+
+        -->
+        <a v-bind:href="linkRepo" target="_blank">github</a>
+        <a v-bind:href="linkdocs" target="_blank">docs</a>
+    </div>
+    
+    <script src="https://unpkg.com/vue"></script>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data:{
+                nomeRepo: 'Estudos-vueJs',
+                linkRepo: 'https://github.com/diegogit03/estudos-vue-js',
+                linkdocs: 'https://vuejs.org/v2/guide/'
+            },
+        });
+    </script>
+
+</body>
+</html>
