@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue js</title>
+</head>
+<body>
+    
+    <div id="app">
+        <p>
+            Repo || {{nomeRepo}}
+        </p>
+
+        <!--
+
+            este v-bind esta dizendo que você deseja fazer um data bind
+            no atributo href assim procurando o valor do atributo no data 
+
+            https://br.vuejs.org/v2/guide/syntax.html
+
+        -->
+        <a v-bind:href="linkRepo" target="_blank">github</a>
+        <a v-bind:href="linkdocs" target="_blank">docs</a>
+    </div>
+    
+    <script src="https://unpkg.com/vue"></script>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data:{
+                nomeRepo: 'Estudos-vueJs',
+                linkRepo: 'https://github.com/diegogit03/estudos-vue-js',
+                linkdocs: 'https://vuejs.org/v2/guide/'
+            },
+        });
+    </script>
+
+</body>
+</html>
