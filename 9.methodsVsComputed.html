@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue js</title>
+</head>
+<body>
+    
+    <div id="app">
+
+        <!--
+
+
+
+        -->
+
+        <!-- utilizando metodo -->
+        <p>{{ repo }} => {{ repoInvertidoMetodo() }}</p>
+        <!-- com Computed Properties -->
+        <p>{{ repo }} => {{ repoInvertido }}</p>
+        <!-- provando o comportamento reativo das Computed Properties -->
+        <input @keypress.enter="provandoReatividade" type="text"/>
+    </div>
+    
+    <script src="https://unpkg.com/vue"></script>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data:{
+                repo: 'estudos-vue-js'
+            },
+            computed: {
+                repoInvertido: function(){
+                    return this.repo.split('').reverse().join('');
+                },
+            },
+            methods: {
+                provandoReatividade: function(event){
+                    this.repo = event.target.value;
+                },
+                repoInvertidoMetodo: function(){
+                    return this.repo.split('').reverse().join('');
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
