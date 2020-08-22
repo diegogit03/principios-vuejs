@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue js</title>
+</head>
+<body>
+    
+    <div id="app">
+
+        <!--
+
+            aqui utilizaremos o contrario do v-bind o v-on,
+            ele nós servira algo do template.
+
+            https://br.vuejs.org/v2/guide/events.html
+
+        -->
+        
+        <h1>Contador: {{cliques}}</h1>
+        <button v-on:click="somaCliques">clique em mim!</button>
+    </div>
+    
+    <script src="https://unpkg.com/vue"></script>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data:{
+                cliques: 0
+            },
+            methods:{
+                somaCliques: function(){
+                    this.cliques++;
+                },
+            }
+        });
+    </script>
+
+</body>
+</html>

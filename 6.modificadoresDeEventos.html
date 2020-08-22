@@ -23,7 +23,9 @@
 
             vueJS:
 
-            <button v-on:click="metodoExucatadoAoClicar">clique aqui</button>
+            <button type="submit" v-on:click.prevent="metodoExucatadoAoClicar">
+                Enviar
+            </button>
 
             https://br.vuejs.org/v2/guide/custom-directive.html
 
