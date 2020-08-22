@@ -11,12 +11,17 @@
 
         <!--
 
-            
+            aqui passaremos 2 parametros no atualiza texto,
+            note que o segundo é um $event, isto serve para que
+            podemos passar pra o metodo qualquer parametro sem 
+            perder o event
+
+            https://vuejs.org/v2/guide/events.html
 
         -->
         
-        <h1>Contador: {{cliques}}</h1>
-        <button v-on:click="somaCliques">clique em mim!</button>
+        <input v-on:blur="atualizaTexto('Meu nome é ', $event)" type="text">
+        <p>{{value}}</p>
     </div>
     
     <script src="https://unpkg.com/vue"></script>
@@ -25,12 +30,12 @@
         new Vue({
             el: '#app',
             data:{
-                cliques: 0
+                value: ''
             },
             methods:{
-                somaCliques: function(){
-                    this.cliques++;
-                },
+                atualizaTexto(textoAdicional, event){
+                    this.value = textoAdicional + event.target.value;
+                }
             }
         });
     </script>
