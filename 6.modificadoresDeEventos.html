@@ -8,10 +8,6 @@
 <body>
     
     <div id="app">
-        <p>
-            Repo || {{nomeRepo}}
-        </p>
-
         <!--
 
             em vuejs podemos manipular um evento de uma forma 
@@ -27,12 +23,23 @@
                 Enviar
             </button>
 
-            https://br.vuejs.org/v2/guide/custom-directive.html
+            https://br.vuejs.org/v2/guide/events.html
 
         -->
       
-        <a v-bind:href="linkRepo" target="_blank">github</a>
-        <a v-bind:href="linkdocs" target="_blank">docs</a>
+        <form action="/" method="GET">
+            <!-- 
+
+                para entender mais sobre a diretiva v-model:
+
+                https://br.vuejs.org/v2/guide/forms.html
+
+             -->
+            <input v-model="input" type="text" placeholder="digite algo">
+            <button v-on:click.prevent="enviar" type="submit">Enviar form</button>
+        </form>
+
+        <p>Foi enviado: {{value}}</p>
     </div>
     
     <script src="https://unpkg.com/vue"></script>
@@ -41,10 +48,14 @@
         new Vue({
             el: '#app',
             data:{
-                nomeRepo: 'Estudos-vueJs',
-                linkRepo: 'https://github.com/diegogit03/estudos-vue-js',
-                linkdocs: 'https://vuejs.org/v2/guide/'
+                value: '',
+                input: '',
             },
+            methods:{
+                enviar: function(event){
+                    this.value = this.input;
+                }
+            }
         });
     </script>
 
