@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue js</title>
+</head>
+<body>
+    
+    <div id="app">
+        <p>Nome completo: {{nomeCompleto}}</p>
+        <button @click="alterarNome">Alterar Nome</button>
+    </div>
+    
+    <script src="https://unpkg.com/vue"></script>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data:{
+                nomeCompleto: 'Diego Henrique de Oliveira Madero'
+            },
+            watch: {
+                nomeCompleto: function(novoNomeCompleto, antigoNomeCompleto){
+                    var vm = this;
+                    //pode se usar codigo assincrono
+                    setTimeout(function(){
+                        vm.nomeCompleto = antigoNomeCompleto;
+                    }, 3000);
+                }
+            },
+            methods: {
+                alterarNome: function(event){
+                    this.nomeCompleto = 'Fox Star of the world'
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
